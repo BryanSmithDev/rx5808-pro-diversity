@@ -92,7 +92,7 @@ char screens::begin(const char *call_sign) {
     display.setTextColor(WHITE);
     display.setCursor(0,8*1+4);
     display.print(PSTR2("Power:"));
-    display.setCursor(display.width()-6*2,8*1+4);
+    display.setCursor(display.width()-6*3,8*1+4);
     display.print(PSTR2("OK"));
     display.setCursor(0,8*2+4);
 
@@ -101,7 +101,7 @@ char screens::begin(const char *call_sign) {
     display.print(PSTR2("Diversity:"));
     display.display();
     delay(250);
-    display.setCursor(display.width()-6*8,8*2+4);
+    display.setCursor(display.width()-6*9,8*2+4);
     if(isDiversity()) {
         display.print(PSTR2(" ENABLED"));
     }
@@ -374,21 +374,21 @@ void screens::screenSaver(uint8_t channelName, uint16_t channelFrequency, const 
 }
 void screens::screenSaver(uint8_t diversity_mode, uint8_t channelName, uint16_t channelFrequency, const char *call_sign) {
     reset();
-    display.setTextSize(6);
+    display.setTextSize(5);
     display.setTextColor(WHITE);
     display.setCursor(0,0);
     display.print(channelName, HEX);
     display.setTextSize(1);
-    display.setCursor(70,0);
+    display.setCursor(65,0);
     display.print(call_sign);
     display.setTextSize(2);
-    display.setCursor(70,28);
+    display.setCursor(65,28);
     display.setTextColor(WHITE);
     display.print(channelFrequency);
     display.setTextSize(1);
 #ifdef USE_DIVERSITY
     if(isDiversity()) {
-        display.setCursor(70,18);
+        display.setCursor(65,18);
         switch(diversity_mode) {
             case useReceiverAuto:
                 display.print(PSTR2("AUTO"));
